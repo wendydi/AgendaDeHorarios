@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import { Button, Table } from 'react-bootstrap';
 import "bootstrap/dist/css/bootstrap.min.css"
 import Teachers from './Teachers';
+import DatePicker from './DatePicker';
 import { Link, useNavigate } from "react-router-dom"
 
 
@@ -60,6 +61,7 @@ const Home = () => {
                                         <Button onClick= {() => handleEdit(item.id, item.name, item.subject)}> Edit </Button>
                                         </Link> &nbsp;
                                         <Button onClick= {() => handleDelete(item.id)}> DELETE </Button>
+                                        <DatePicker />
                                     </td>
                                 </tr>
                             )
