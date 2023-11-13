@@ -1,9 +1,11 @@
 import React, { Fragment } from 'react';
-import { Button, Table } from 'react-bootstrap';
+import { Button, Table, Form } from 'react-bootstrap';
 import "bootstrap/dist/css/bootstrap.min.css"
 import Teachers from './Teachers';
 import DatePicker from './DatePicker';
+import Cadastro from './Cadastro';
 import { Link, useNavigate } from "react-router-dom"
+import Horarios from './Horarios';
 
 
 const Home = () => {
@@ -28,7 +30,23 @@ const Home = () => {
 
   return (
     <Fragment> 
-        <div style={{margin:"10rem"}}>
+        <div style={{margin:"2rem"}}>
+            <div className='mx-auto' style={{width: "90rem"}}>
+                <Cadastro/>
+                <Cadastro/>
+                <Cadastro/>
+            </div>
+            <div>
+                <p className='d-inline-block'> Professor </p>
+                <p className='d-inline-block mx-5'> Disciplina </p>
+                <p className='d-inline-block'> Turma </p>
+            </div>
+            <div className="input-group" style={{width: "90rem", margin: "20px"}}>
+                <Horarios/>
+                <Horarios/>
+                <Horarios/>
+                    <button class="btn btn-outline-secondary" type="button">Cadastrar</button>
+            </div>
             <Table striped bordered hover size="sm">
                 <thead>
                     <tr>
@@ -57,11 +75,8 @@ const Home = () => {
                                         {item.subject}
                                     </td>
                                     <td>
-                                        <Link to={`/edit`}>
-                                        <Button onClick= {() => handleEdit(item.id, item.name, item.subject)}> Edit </Button>
-                                        </Link> &nbsp;
-                                        <Button onClick= {() => handleDelete(item.id)}> DELETE </Button>
                                         <DatePicker />
+                                        <Button onClick= {() => handleDelete(item.id)}> DELETE </Button>
                                     </td>
                                 </tr>
                             )
